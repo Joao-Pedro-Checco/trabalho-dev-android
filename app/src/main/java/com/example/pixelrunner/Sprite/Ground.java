@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import com.example.pixelrunner.R;
 
 public class Ground {
+    private static final int GROUND_X_SPEED = 20;
     private int x = 0, y = 0;
     private int screenX, screenY;
     private Bitmap ground;
@@ -22,7 +23,7 @@ public class Ground {
     }
 
     public void update() {
-        this.x -= 10;
+        this.x -= GROUND_X_SPEED;
 
         if (this.x + this.ground.getWidth() < 0) {
             this.x = this.screenX;
@@ -45,7 +46,7 @@ public class Ground {
         this.y = y;
     }
 
-    public Bitmap getGround() {
+    public Bitmap getBitmap() {
         return ground;
     }
 }
