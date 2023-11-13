@@ -48,9 +48,9 @@ public class GameView extends SurfaceView implements Runnable {
     private void draw() {
         if (getHolder().getSurface().isValid()) {
             Canvas canvas = getHolder().lockCanvas();
-            canvas.drawBitmap(sky.getBitmap(), sky.getX(), sky.getY(), paint);
-            canvas.drawBitmap(ground1.getBitmap(), ground1.getX(), ground1.getY(), paint);
-            canvas.drawBitmap(ground2.getBitmap(), ground2.getX(), ground2.getY(), paint);
+            sky.draw(canvas, paint);
+            ground1.draw(canvas, paint);
+            ground2.draw(canvas, paint);
 
             getHolder().unlockCanvasAndPost(canvas);
         }

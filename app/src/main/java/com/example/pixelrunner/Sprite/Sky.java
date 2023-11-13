@@ -3,20 +3,26 @@ package com.example.pixelrunner.Sprite;
 import android.content.res.Resources;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Canvas;
+import android.graphics.Paint;
 
 import com.example.pixelrunner.R;
 
 public class Sky {
     private int x = 0, y = 0;
     private int screenX, screenY;
-    private Bitmap sky;
+    private Bitmap bitmap;
 
     public Sky(int screenX, int screenY, Resources res) {
         this.screenX = screenX;
         this.screenY = screenY;
 
-        sky = BitmapFactory.decodeResource(res, R.drawable.sky);
-        sky = Bitmap.createScaledBitmap(sky, this.screenX, this.screenY, false);
+        bitmap = BitmapFactory.decodeResource(res, R.drawable.sky);
+        bitmap = Bitmap.createScaledBitmap(bitmap, this.screenX, this.screenY, false);
+    }
+
+    public void draw(Canvas canvas, Paint paint) {
+        canvas.drawBitmap(this.bitmap, this.x, this.y, paint);
     }
 
     public int getX() {
@@ -36,6 +42,6 @@ public class Sky {
     }
 
     public Bitmap getBitmap() {
-        return sky;
+        return bitmap;
     }
 }
