@@ -1,15 +1,20 @@
 package com.example.pixelrunner.Game;
 
 import android.content.Context;
+import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 
+import com.example.pixelrunner.Sprite.Snail;
 import com.example.pixelrunner.Sprite.Ground;
 import com.example.pixelrunner.Sprite.Player;
 import com.example.pixelrunner.Sprite.Sky;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class GameView extends SurfaceView implements Runnable {
     private Thread thread;
@@ -19,6 +24,7 @@ public class GameView extends SurfaceView implements Runnable {
     private Sky sky;
     private Paint paint;
     private Player player;
+    private Snail snail;
 
     public GameView(Context context, int screenX, int screenY) {
         super(context);
@@ -26,10 +32,13 @@ public class GameView extends SurfaceView implements Runnable {
         this.screenX = screenX;
         this.screenY = screenY;
 
-        sky = new Sky(this.screenX, this.screenY, getResources());
-        ground1 = new Ground(this.screenX, this.screenY, getResources());
-        ground2 = new Ground(this.screenX, this.screenY, getResources());
-        player = new Player(screenY, getResources());
+        Resources res = getResources();
+
+        sky = new Sky(this.screenX, this.screenY, res);
+        ground1 = new Ground(this.screenX, this.screenY, res);
+        ground2 = new Ground(this.screenX, this.screenY, res);
+        player = new Player(screenY, res);
+        snail = new Snail(screenX, screenY, res);
 
         ground2.setX(this.screenX);
 
@@ -49,6 +58,7 @@ public class GameView extends SurfaceView implements Runnable {
         ground1.update();
         ground2.update();
         player.update();
+        snail.update();
     }
 
     protected void draw() {
@@ -58,6 +68,7 @@ public class GameView extends SurfaceView implements Runnable {
             ground1.draw(canvas, paint);
             ground2.draw(canvas, paint);
             player.draw(canvas, paint);
+            snail.draw(canvas, paint);
 
             getHolder().unlockCanvasAndPost(canvas);
         }

@@ -21,8 +21,7 @@
         android:text="Pixel Runner"
         android:textColor="#404040"
         android:textSize="90sp"
-        android:layout_above="@id/play"
-        android:layout_below="@id/highScore"/>
+        android:layout_above="@id/play"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -33,17 +32,6 @@
         android:layout_centerInParent="true"
         android:textColor="#404040"
         android:id="@+id/play"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="High Score"
-        android:fontFamily="@font/pixel_type"
-        android:textColor="#404040"
-        android:id="@+id/highScore"
-        android:textSize="40sp"
-        android:layout_alignParentRight="true"
-        android:layout_margin="16dp"/>
 
     <ImageView
         android:layout_width="match_parent"

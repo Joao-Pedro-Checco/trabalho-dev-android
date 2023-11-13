@@ -31,7 +31,7 @@ public class Player {
     }
 
     public void draw(Canvas canvas, Paint paint) {
-        canvas.drawBitmap(this.getWalk(), this.x, this.y, paint);
+        canvas.drawBitmap(this.getFrames(), this.x, this.y, paint);
     }
 
     public void update() {
@@ -56,7 +56,7 @@ public class Player {
         return this.y == this.screenY / 2;
     }
 
-    private Bitmap getWalk() {
+    private Bitmap getFrames() {
         if (walkCounter == 0) {
             walkCounter++;
             return playerWalk1;
