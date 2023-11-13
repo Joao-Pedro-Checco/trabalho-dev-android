@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import com.example.pixelrunner.R;
 
 public class Ground {
-    private static final int GROUND_X_SPEED = 20;
+    private static final int GROUND_X_SPEED = 25;
     private int x = 0, y = 0;
     private int screenX, screenY;
     private Bitmap bitmap;
