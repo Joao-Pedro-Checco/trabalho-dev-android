@@ -13,10 +13,15 @@
         android:theme="@style/Theme.PixelRunner"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".Activity.GameActivity"
+            android:exported="false"
+            android:screenOrientation="landscape"
+            android:theme="@style/Base.Theme.PixelRunner.noActionBar"/>
+        <activity
+            android:name=".Activity.MainActivity"
             android:exported="true"
-            android:theme="@style/Base.Theme.PixelRunner.noActionBar"
-            android:screenOrientation="landscape">
+            android:screenOrientation="landscape"
+            android:theme="@style/Base.Theme.PixelRunner.noActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
