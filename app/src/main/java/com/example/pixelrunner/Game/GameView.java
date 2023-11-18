@@ -20,8 +20,8 @@ public class GameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying;
     private int screenX, screenY;
-    private Ground ground1, ground2;
-    private Sky sky;
+    private Ground ground;
+    private Sky sky1, sky2;
     private Paint paint;
     private Player player;
     private Snail snail;
@@ -32,15 +32,13 @@ public class GameView extends SurfaceView implements Runnable {
         this.screenX = screenX;
         this.screenY = screenY;
 
-        Resources res = getResources();
+        sky1 = new Sky(this.screenX, this.screenY, getResources());
+        sky2 = new Sky(this.screenX, this.screenY, getResources());
+        ground = new Ground(this.screenX, this.screenY, getResources());
+        player = new Player(screenY, getResources());
+        snail = new Snail(screenX, screenY, getResources());
 
-        sky = new Sky(this.screenX, this.screenY, res);
-        ground1 = new Ground(this.screenX, this.screenY, res);
-        ground2 = new Ground(this.screenX, this.screenY, res);
-        player = new Player(screenY, res);
-        snail = new Snail(screenX, screenY, res);
-
-        ground2.setX(this.screenX);
+        sky2.setX(this.screenX);
 
         paint = new Paint();
     }
@@ -54,9 +52,9 @@ public class GameView extends SurfaceView implements Runnable {
         }
     }
 
-    protected void update() {
-        ground1.update();
-        ground2.update();
+    private void update() {
+        sky1.update();
+        sky2.update();
         player.update();
         snail.update();
     }
@@ -64,9 +62,9 @@ public class GameView extends SurfaceView implements Runnable {
     protected void draw() {
         if (getHolder().getSurface().isValid()) {
             Canvas canvas = getHolder().lockCanvas();
-            sky.draw(canvas, paint);
-            ground1.draw(canvas, paint);
-            ground2.draw(canvas, paint);
+            sky1.draw(canvas, paint);
+            sky2.draw(canvas, paint);
+            ground.draw(canvas, paint);
             player.draw(canvas, paint);
             snail.draw(canvas, paint);
 

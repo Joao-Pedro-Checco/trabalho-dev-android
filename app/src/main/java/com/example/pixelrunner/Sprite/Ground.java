@@ -9,7 +9,6 @@ import android.graphics.Paint;
 import com.example.pixelrunner.R;
 
 public class Ground {
-    private static final int GROUND_X_SPEED = 25;
     private int x = 0, y = 0;
     private int screenX, screenY;
     private Bitmap bitmap;
@@ -22,14 +21,6 @@ public class Ground {
 
         bitmap = BitmapFactory.decodeResource(res, R.drawable.ground);
         bitmap = Bitmap.createScaledBitmap(bitmap, this.screenX, this.screenY, false);
-    }
-
-    public void update() {
-        this.x -= GROUND_X_SPEED;
-
-        if (this.x + this.bitmap.getWidth() < 0) {
-            this.x = this.screenX;
-        }
     }
 
     public void draw(Canvas canvas, Paint paint) {

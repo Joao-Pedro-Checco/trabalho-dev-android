@@ -9,6 +9,7 @@ import android.graphics.Paint;
 import com.example.pixelrunner.R;
 
 public class Sky {
+    private static final int GROUND_X_SPEED = 20;
     private int x = 0, y = 0;
     private int screenX, screenY;
     private Bitmap bitmap;
@@ -23,6 +24,14 @@ public class Sky {
 
     public void draw(Canvas canvas, Paint paint) {
         canvas.drawBitmap(this.bitmap, this.x, this.y, paint);
+    }
+
+    public void update() {
+        this.x -= GROUND_X_SPEED;
+
+        if (this.x + this.bitmap.getWidth() < 0) {
+            this.x = this.screenX;
+        }
     }
 
     public int getX() {
