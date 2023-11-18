@@ -5,6 +5,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 
 import com.example.pixelrunner.R;
 
@@ -50,6 +51,10 @@ public class Player {
         if (isOnGround()) {
             this.gravity -= 150;
         }
+    }
+
+    public Rect getRect() {
+        return new Rect((int) this.x, (int) this.y, (int) (x + this.width), (int) (y + this.height));
     }
 
     private boolean isOnGround() {

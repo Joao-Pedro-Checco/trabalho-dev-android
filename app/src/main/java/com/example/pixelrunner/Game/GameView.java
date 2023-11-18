@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.graphics.Canvas;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
@@ -57,6 +58,7 @@ public class GameView extends SurfaceView implements Runnable {
         sky2.update();
         player.update();
         snail.update();
+        checkCollision();
     }
 
     protected void draw() {
@@ -103,5 +105,20 @@ public class GameView extends SurfaceView implements Runnable {
         }
 
         return true;
+    }
+
+    public void checkCollision() {
+        if (isColliding(player.getRect(), snail.getRect())) {
+            // game over
+            gameOver();
+        }
+    }
+
+    private boolean isColliding(Rect playerRect, Rect snailRect) {
+        return playerRect.intersect(snailRect);
+    }
+
+    private void gameOver() {
+        isPlaying = false;
     }
 }

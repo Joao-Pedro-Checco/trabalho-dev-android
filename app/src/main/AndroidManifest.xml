@@ -13,10 +13,13 @@
         android:theme="@style/Theme.PixelRunner"
         tools:targetApi="31">
         <activity
+            android:name=".Activity.GameOverActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activity.GameActivity"
             android:exported="false"
             android:screenOrientation="landscape"
-            android:theme="@style/Base.Theme.PixelRunner.noActionBar"/>
+            android:theme="@style/Base.Theme.PixelRunner.noActionBar" />
         <activity
             android:name=".Activity.MainActivity"
             android:exported="true"
