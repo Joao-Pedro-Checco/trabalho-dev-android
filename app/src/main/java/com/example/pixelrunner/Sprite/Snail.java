@@ -11,6 +11,7 @@ import com.example.pixelrunner.Game.GameView;
 import com.example.pixelrunner.R;
 
 public class Snail {
+    private final int SNAIL_X_SPEED = 30;
     private int x, y, width, height, animationCounter;
     private int screenX, screenY;
     private Bitmap frame1, frame2;
@@ -33,7 +34,7 @@ public class Snail {
     }
 
     public void update() {
-        x -= 20;
+        x -= SNAIL_X_SPEED;
         if (x + this.frame1.getWidth() <= 0) {
             x = this.screenX + (screenY / 2);
         }

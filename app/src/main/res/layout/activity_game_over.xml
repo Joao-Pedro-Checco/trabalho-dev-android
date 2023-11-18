@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.GameOverActivity">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/sky"
+        android:scaleType="fitXY"
+        android:contentDescription="background" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:fontFamily="@font/pixel_type"
+        android:text="Game Over!"
+        android:textColor="#404040"
+        android:textSize="90sp"
+        android:layout_above="@id/tryAgain"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Try Again"
+        android:fontFamily="@font/pixel_type"
+        android:textSize="85sp"
+        android:layout_centerInParent="true"
+        android:textColor="#404040"
+        android:id="@+id/tryAgain"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/ground"
+        android:contentDescription="ground"
+        android:layout_below="@id/tryAgain"
+        android:layout_marginTop= "80dp"
+        android:scaleType="fitXY"/>
+
+</RelativeLayout>

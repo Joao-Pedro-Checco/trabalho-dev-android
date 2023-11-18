@@ -1,21 +1,18 @@
 package com.example.pixelrunner.Game;
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.Intent;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Rect;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.SurfaceView;
 
-import com.example.pixelrunner.Sprite.Snail;
+import com.example.pixelrunner.Activity.GameOverActivity;
 import com.example.pixelrunner.Sprite.Ground;
 import com.example.pixelrunner.Sprite.Player;
 import com.example.pixelrunner.Sprite.Sky;
-
-import java.util.ArrayList;
-import java.util.List;
+import com.example.pixelrunner.Sprite.Snail;
 
 public class GameView extends SurfaceView implements Runnable {
     private Thread thread;
@@ -101,7 +98,6 @@ public class GameView extends SurfaceView implements Runnable {
     public boolean onTouchEvent(MotionEvent event) {
         if (event.getAction() == MotionEvent.ACTION_DOWN) {
             player.jump();
-            Log.d("toque", "pulou");
         }
 
         return true;
@@ -120,5 +116,7 @@ public class GameView extends SurfaceView implements Runnable {
 
     private void gameOver() {
         isPlaying = false;
+        Intent intent = new Intent(getContext(), GameOverActivity.class);
+        getContext().startActivity(intent);
     }
 }
