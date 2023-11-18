@@ -12,8 +12,8 @@ public class GameView extends SurfaceView implements Runnable {
     private Thread thread;
     private boolean isPlaying;
     private int screenX, screenY;
-    private Ground ground1, ground2;
-    private Sky sky;
+    private Ground ground;
+    private Sky sky1, sky2;
     private Paint paint;
 
     public GameView(Context context, int screenX, int screenY) {
@@ -22,11 +22,11 @@ public class GameView extends SurfaceView implements Runnable {
         this.screenX = screenX;
         this.screenY = screenY;
 
-        sky = new Sky(this.screenX, this.screenY, getResources());
-        ground1 = new Ground(this.screenX, this.screenY, getResources());
-        ground2 = new Ground(this.screenX, this.screenY, getResources());
+        sky1 = new Sky(this.screenX, this.screenY, getResources());
+        sky2 = new Sky(this.screenX, this.screenY, getResources());
+        ground = new Ground(this.screenX, this.screenY, getResources());
 
-        ground2.setX(this.screenX);
+        sky2.setX(this.screenX);
 
         paint = new Paint();
     }
@@ -41,16 +41,16 @@ public class GameView extends SurfaceView implements Runnable {
     }
 
     private void update() {
-        ground1.update();
-        ground2.update();
+        sky1.update();
+        sky2.update();
     }
 
     private void draw() {
         if (getHolder().getSurface().isValid()) {
             Canvas canvas = getHolder().lockCanvas();
-            canvas.drawBitmap(sky.getBitmap(), sky.getX(), sky.getY(), paint);
-            canvas.drawBitmap(ground1.getBitmap(), ground1.getX(), ground1.getY(), paint);
-            canvas.drawBitmap(ground2.getBitmap(), ground2.getX(), ground2.getY(), paint);
+            canvas.drawBitmap(sky1.getBitmap(), sky1.getX(), sky1.getY(), paint);
+            canvas.drawBitmap(sky2.getBitmap(), sky2.getX(), sky2.getY(), paint);
+            canvas.drawBitmap(ground.getBitmap(), ground.getX(), ground.getY(), paint);
 
             getHolder().unlockCanvasAndPost(canvas);
         }

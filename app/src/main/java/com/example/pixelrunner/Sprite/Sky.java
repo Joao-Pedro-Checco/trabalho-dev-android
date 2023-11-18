@@ -7,6 +7,7 @@ import android.graphics.BitmapFactory;
 import com.example.pixelrunner.R;
 
 public class Sky {
+    private static final int GROUND_X_SPEED = 20;
     private int x = 0, y = 0;
     private int screenX, screenY;
     private Bitmap sky;
@@ -17,6 +18,14 @@ public class Sky {
 
         sky = BitmapFactory.decodeResource(res, R.drawable.sky);
         sky = Bitmap.createScaledBitmap(sky, this.screenX, this.screenY, false);
+    }
+
+    public void update() {
+        this.x -= GROUND_X_SPEED;
+
+        if (this.x + this.sky.getWidth() < 0) {
+            this.x = this.screenX;
+        }
     }
 
     public int getX() {
