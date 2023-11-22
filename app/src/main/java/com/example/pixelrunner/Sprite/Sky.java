@@ -28,7 +28,6 @@ public class Sky {
 
     public void update() {
         this.x -= SKY_X_POS;
-
         if (this.x + this.bitmap.getWidth() < 0) {
             this.x = this.screenX;
         }

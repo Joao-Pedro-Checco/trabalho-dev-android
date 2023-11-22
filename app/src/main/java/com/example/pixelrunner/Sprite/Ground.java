@@ -9,7 +9,7 @@ import android.graphics.Paint;
 import com.example.pixelrunner.R;
 
 public class Ground {
-    private int x = 0, y = 0;
+    private int x = 0, y;
     private int screenX, screenY;
     private Bitmap bitmap;
 

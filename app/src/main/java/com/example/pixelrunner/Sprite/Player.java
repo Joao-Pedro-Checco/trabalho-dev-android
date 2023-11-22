@@ -54,7 +54,7 @@ public class Player {
     }
 
     public Rect getRect() {
-        return new Rect((int) this.x, (int) this.y, (int) (x + this.width), (int) (y + this.height));
+        return new Rect(this.x, this.y, (x + this.width), (y + this.height));
     }
 
     private boolean isOnGround() {
